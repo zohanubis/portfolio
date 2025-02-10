@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+
 import Navbar from './components/Navbar';
 import Header from '@/app/components/Header';
 import About from '@/app/components/About';
@@ -11,7 +12,6 @@ import Footer from '@/app/components/Footer';
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false); // Check nếu component đã mount
-
   useEffect(() => {
     // Chỉ chạy trên client
     const getInitialDarkMode = () => {

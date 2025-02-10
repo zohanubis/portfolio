@@ -28,9 +28,9 @@ import menu_white from './menu-white.png'
 import close_black from './close-black.png'
 import close_white from './close-white.png'
 import web_icon from './web-icon.png'
-import mobile_icon from './mobile-icon.png'
-import ui_icon from './ui-icon.png'
-import graphics_icon from './graphics-icon.png'
+import backend_icon from './backend-icon.png'
+import frontend_icon from './frontend-icon.png'
+import devops_icon from './devops-icon.png'
 import right_arrow from './right-arrow.png'
 import send_icon from './send-icon.png'
 import send_icon_dark from'./send-icon-dark.png'
@@ -68,9 +68,9 @@ export const assets = {
   close_black,
   close_white,
   web_icon,
-  mobile_icon,
-  ui_icon,
-  graphics_icon,
+  backend_icon,
+  frontend_icon,
+  devops_icon,
   right_arrow,
   send_icon,
   send_icon_dark,
@@ -80,53 +80,55 @@ export const assets = {
 
 export const workData = [
   {
-    title: 'Frontend project',
-    description: 'Web Design',
+    title: 'E-Commerce Website',
+    description: 'Fullstack Development',
     bgImage: '/work-1.png',
   },
   {
-    title: 'Geo based app',
-    description: 'Mobile App',
+    title: 'Online Bookstore',
+    description: 'Backend Development',
     bgImage: '/work-2.png',
   },
   {
-    title: 'Photography site',
-    description: 'Web Design',
+    title: 'Portfolio Website',
+    description: 'Frontend Development',
     bgImage: '/work-3.png',
   },
   {
-    title: 'UI/UX designing',
-    description: 'UI/UX Design',
+    title: 'Management System',
+    description: 'Fullstack Development',
     bgImage: '/work-4.png',
   },
-]
+];
+
 
 export const serviceData = [
   {
     icon: assets.web_icon,
-    title: 'Web design',
-    description: 'Web development is the process of building, programming...',
+    title: 'Fullstack Web Development',
+    description: 'Building modern, high-performance web applications using React, Next.js, and Node.js.',
     link: '',
   },
   {
-    icon: assets.mobile_icon,
-    title: 'Mobile app',
-    description: 'Mobile app development involves creating software for mobile devices...',
+    icon: assets.backend_icon,
+    title: 'Backend Development',
+    description: 'Developing scalable and secure backend systems with Java (Spring Boot), C# (ASP.NET), and Node.js.',
     link: '',
   },
   {
-    icon: assets.ui_icon,
-    title: 'UI/UX design',
-    description: 'UI/UX design focuses on creating a seamless user experience...',
+    icon: assets.frontend_icon,
+    title: 'Frontend Development',
+    description: 'Creating responsive and interactive UIs with ReactJS, TypeScript, and Tailwind CSS.',
     link: '',
   },
   {
-    icon: assets.graphics_icon,
-    title: 'Graphics design',
-    description: 'Creative design solutions to enhance visual communication...',
+    icon: assets.devops_icon,
+    title: 'DevOps & CI/CD',
+    description: 'Setting up automated workflows with Docker, GitHub Actions, and cloud deployment.',
     link: '',
   },
-]
+];
+
 
 export const infoList = [
   {
