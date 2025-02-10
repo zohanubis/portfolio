@@ -33,6 +33,7 @@ import ui_icon from './ui-icon.png'
 import graphics_icon from './graphics-icon.png'
 import right_arrow from './right-arrow.png'
 import send_icon from './send-icon.png'
+import send_icon_dark from'./send-icon-dark.png'
 import right_arrow_bold from './right-arrow-bold.png'
 import right_arrow_bold_dark from './right-arrow-bold-dark.png'
 
@@ -72,6 +73,7 @@ export const assets = {
   graphics_icon,
   right_arrow,
   send_icon,
+  send_icon_dark,
   right_arrow_bold,
   right_arrow_bold_dark,
 }
