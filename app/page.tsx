@@ -5,9 +5,10 @@ import Navbar from './components/Navbar';
 import Header from '@/app/components/Header';
 import About from '@/app/components/About';
 import Services from '@/app/components/Services';
-import Work from '@/app/components/Work';
+// import Work from '@/app/components/Work';
 import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
+import Experience from '@/app/components/Experience/Experience';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -39,7 +40,8 @@ export default function Home() {
         <Header isDarkMode={isDarkMode} />
         <About isDarkMode={isDarkMode} />
         <Services />
-        <Work isDarkMode={isDarkMode} />
+        <Experience isDarkMode = {isDarkMode}/>
+        {/* <Work isDarkMode={isDarkMode} /> */}
         <Contact />
       </main>
       <Footer isDarkMode={isDarkMode} />
