@@ -41,7 +41,6 @@ export default function Home() {
         <About isDarkMode={isDarkMode} />
         <Services />
         <Experience isDarkMode = {isDarkMode}/>
-        {/* <Work isDarkMode={isDarkMode} /> */}
         <Contact />
       </main>
       <Footer isDarkMode={isDarkMode} />

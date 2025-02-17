@@ -1,3 +1,4 @@
+'use client'
 import SectionHeading from "@/app/components/SectionHeading";
 import { experienceData } from "@/assets/assets";
 import React, { useState } from "react";
@@ -14,27 +15,24 @@ export default function Experience({ isDarkMode }: ExperienceProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <motion.section 
-      id="experience" 
-      className="bg-white dark:bg-gray-900 py-20 transition-colors duration-300"
+    <motion.section
+      id="experience"
+      className="dark:bg-transparent py-20 transition-colors duration-300"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SectionHeading>My Experience</SectionHeading>
+        <SectionHeading>My Work</SectionHeading>
       </motion.div>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        //viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         <VerticalTimeline lineColor="" animate={true}>

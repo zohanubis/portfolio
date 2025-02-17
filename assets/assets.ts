@@ -40,39 +40,52 @@ import { LuGraduationCap } from 'react-icons/lu';
 import { StaticImageData } from 'next/image';
 import React, { JSX } from 'react';
 
+
+// Type Definitions
 type WorkItem = {
-  title: string |StaticImageData;
+  title: string | StaticImageData;
   description: string;
   bgImage: string;
 };
 
 type ServiceItem = {
-  icon: string |StaticImageData;
+  icon: string | StaticImageData;
   title: string;
   description: string;
   link: string;
 };
 
 type InfoItem = {
-  icon: string |StaticImageData;
-  iconDark: string |StaticImageData;
+  icon: string | StaticImageData;
+  iconDark: string | StaticImageData;
   title: string;
   description: string;
 };
 
 type ExperienceItem = {
+  id: string;
   title: string;
   location: string;
   description: string;
-  technologies?: string[];
-  responsibilities?: {
+  technologies?: Partial<{
     frontend: string[];
     backend: string[];
-    devops?: string[];
-  };
+    database: string[];
+    messaging: string[];
+    storage: string[];
+    devops: string[];
+    authentication: string[];
+    other: string[];
+  }>;
+  responsibilities?: Partial<{
+    frontend: string[];
+    backend: string[];
+    devops: string[];
+  }>;
   icon: JSX.Element;
   date: string;
 };
+
 
 export const assets: Record<string, StaticImageData> = {
   user_image,
@@ -172,68 +185,69 @@ export const infoList: InfoItem[] = [
 
 export const experienceData: ExperienceItem[] = [
   {
-    title: 'Fullstack Web Intern',
+    id: 'cyberskill-intern',
+    title: 'Fullstack Web Developer Intern',
     location: 'Cyberskill Software Solutions',
     description:
-      'Worked on both frontend and backend development for the Student Life - Rental Management project. Designed and implemented UI/UX components, built APIs, and optimized database structures.',
+      'Contributed to both frontend and backend development for the Student Life - Rental Management project. Designed UI/UX, built APIs, and optimized database structures.',
     icon: React.createElement(LuGraduationCap),
     date: 'Sep 2024 - Dec 2024',
-    technologies: [
-      'Frontend: React.js, Next.js, TypeScript, Tailwind CSS',
-      'Backend: Node.js, Express.js, GraphQL, MongoDB',
-      'Other: Git, Docker, GitHub Actions',
-    ],
+    technologies: {
+      frontend: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js', 'Express.js', 'GraphQL', 'MongoDB'],
+      devops: ['Git', 'Docker', 'GitHub Actions'],
+    },
     responsibilities: {
       frontend: [
-        'Participated in designing and developing the user interface.',
-        'Implemented features for rental listing, search, and filtering.',
-        'Ensured responsive design across desktop and mobile devices.',
+        'Designed and developed user-friendly interfaces.',
+        'Implemented features for rental listings, search, and filtering.',
+        'Ensured responsive design across desktop and mobile platforms.',
       ],
       backend: [
-        'Designed database collections in MongoDB based on business requirements.',
-        'Developed RESTful and GraphQL APIs using Node.js & Express.js to handle rental management logic.',
-        'Performed testing, debugging, and API performance optimization.',
+        'Designed and structured MongoDB collections.',
+        'Developed RESTful and GraphQL APIs for rental management.',
+        'Optimized API performance, conducted testing, and debugged issues.',
       ],
     },
   },
-  
   {
+    id: 'iu-student-management',
     title: 'Fullstack Web Developer',
     location: 'Industrial University of Ho Chi Minh City',
     description:
-      'Developed a system for managing student activities and attendance at the Faculty of Information Technology. The system supports activity registration, QR Code-based attendance tracking, student participation history statistics, and automated notifications. Additionally, the backend is designed using a microservices architecture to enhance performance and scalability.',
+      'Developed a student activity management and QR code attendance system. Enabled activity registration, participation tracking, and automated notifications.',
     icon: React.createElement(LuGraduationCap),
     date: 'Oct 2024 - Dec 2024',
-    technologies: [
-      'Frontend: Next.js, React.js, TypeScript, Tailwind CSS',
-      'Backend: Node.js, Express.js, FastAPI',
-      'Database: MongoDB, Redis',
-      'Messaging Queue: RabbitMQ (if used)',
-      'Storage: Cloudinary (for images)',
-      'Authentication: JWT',
-      'Other: Docker, GitHub Actions, Firebase Cloud Messaging (FCM)',
-    ],
+    technologies: {
+      frontend: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js', 'Express.js', 'FastAPI'],
+      database: ['MongoDB', 'Redis'],
+      messaging: ['RabbitMQ (if implemented)'],
+      storage: ['Cloudinary'],
+      authentication: ['JWT'],
+      devops: ['Docker', 'GitHub Actions', 'Firebase Cloud Messaging (FCM)'],
+    },
     responsibilities: {
       frontend: [
-        'Designed UI/UX with Figma and built a responsive interface.',
-        'Developed features for displaying activity lists and QR Code-based attendance.',
-        'Optimized performance and user experience using Next.js (SSR, SSG).',
+        'Designed UI/UX using Figma and developed a responsive interface.',
+        'Implemented features for activity display and QR code attendance tracking.',
+        'Optimized performance using Next.js (SSR, SSG).',
       ],
       backend: [
-        'Developed GraphQL API with Express.js and MongoDB.',
-        'Designed a RESTful E-commerce Backend system following a microservices architecture.',
-        'Implemented authentication & authorization using JWT.',
-        'Integrated Redis for caching and used distributed locks to ensure consistency.',
+        'Developed GraphQL APIs using Express.js and MongoDB.',
+        'Implemented a microservices architecture.',
+        'Integrated Redis caching and distributed locks.',
         'Managed image storage with Cloudinary.',
       ],
       devops: [
-        'Containerized the system with Docker and deployed it in a production environment.',
-        'Integrated RabbitMQ for message queue processing (if used).',
-        'Implemented Firebase Cloud Messaging (FCM) for automated notifications.',
+        'Deployed the system using Docker.',
+        'Integrated RabbitMQ for message queue processing (if implemented).',
+        'Implemented Firebase Cloud Messaging (FCM) for real-time notifications.',
       ],
     },
   },
 ];
+
 
 
 export const toolsData: (string | StaticImageData)[] = [assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git];

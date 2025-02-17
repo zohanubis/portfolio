@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, setIsDarkMode }) => {
       </div>
 
       <nav className={`w-full flex justify-between items-center py-5 px-10 fixed top-0 z-50 
-        ${isScroll ? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20' : ''}`}>
+        ${isScroll ? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-hideden dark:shadow-white/20' : ''}`}>
         
         <a href="#top">
           <Image

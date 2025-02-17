@@ -6,7 +6,7 @@ import { assets } from '@/assets/assets';
 
 const Footer = ({ isDarkMode} : {isDarkMode : boolean}) => {
   return (
-    <div className="mt-20 bg-white dark:bg-transparent text-black dark:text-gray-300">
+    <div className="mt-20 bg-transparent dark:bg-transparent text-black dark:text-gray-300">
       <div className="text-center">
         <Image src={isDarkMode ? assets.logo_dark: assets.logo} alt="logo" className="w-48 mx-auto mb-2" />
         <div className="w-max flex items-center gap-2 mx-auto">

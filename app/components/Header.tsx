@@ -8,7 +8,6 @@ import { motion } from "motion/react";
 const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const btnClass =
     "px-10 py-3 border rounded-full flex items-center gap-2 transition duration-300";
-
   return (
     <div
       id="home"
@@ -57,9 +56,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        I`m a web developer with strong skills in both Frontend and Backend,
-        specializing in building modern, high-performance, and secure web
-        applications.
+        I`m a passionate Fullstack Web Developer specializing in Node.js, Java, C#, React.js, Next.js, and TypeScript. I build scalable, high-performance web applications and have experience with Microservices, CI/CD, and DevOps.
       </motion.p>
 
       {/* Nút với hiệu ứng hover scale */}

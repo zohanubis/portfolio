@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: Outfit;
+  font-family: 'Ovo', sans-serif;
 }
 html {
   --line-color: #e5e7eb;
@@ -13,3 +13,4 @@ html {
 html.dark {
   --line-color: #374151;
 }
+

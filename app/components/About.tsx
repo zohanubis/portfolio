@@ -43,9 +43,7 @@ const About = ({ isDarkMode }: { isDarkMode: boolean }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            I`m a web developer with a strong foundation in both Frontend and Backend development, specializing in
-            building modern web applications with a focus on performance optimization and security. While I have
-            experience across the full stack, my expertise leans more towards Frontend development.
+            Hi, I`m Huy, a Fullstack Web Developer with hands-on experience in backend & frontend development. With a solid foundation in Java, C#, Node.js, React.js, and Next.js, I enjoy building scalable and high-performance web applications. I`m passionate about learning new technologies and frameworks to improve my skills and solve real-world problems.
           </motion.p>
 
           {/* Info Cards */}

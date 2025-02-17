@@ -45,7 +45,7 @@ const Contact = () => {
   return (
     <div
       id="contactme"
-      className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-center bg-no-repeat bg-[length:90%_auto] dark:bg-none"
+      className="w-full px-[12%] py-10 scroll-mt-20  bg-center bg-no-repeat bg-[length:90%_auto] dark:bg-none"
     >
       {/* Tiêu đề */}
       <motion.h4

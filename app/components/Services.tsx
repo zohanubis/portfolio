@@ -37,9 +37,7 @@ const Services = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        I`m a web developer with a strong foundation in both Frontend and Backend development, specializing in
-        building modern web applications with a focus on performance optimization and security. While I have
-        experience across the full stack, my expertise leans more towards Frontend development.
+        As a full-stack web developer, I specialize in crafting high-performance, scalable, and secure web applications. From designing intuitive user interfaces to optimizing backend systems, I ensure seamless digital experiences. My expertise spans Frontend, Backend, DevOps, and Security, allowing me to build robust and efficient solutions tailored to your needs.
       </motion.p>
 
       {/* Danh sách dịch vụ */}
