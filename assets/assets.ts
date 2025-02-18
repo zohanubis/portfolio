@@ -36,9 +36,38 @@ import send_icon from './send-icon.png';
 import send_icon_dark from './send-icon-dark.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+//icons
+import nodejs_small from './icons/small/nodejs-icon.png';
+import react_small from './icons/small/react-icon.png';
+import nextjs_small from './icons/small/nextjs-icon.png';
+import typescript_small from './icons/small/typescript-icon.png';
+import docker_small from './icons/small/docker-icon.png';
+import github_small from './icons/small/github-icon.png';
+import apollo_small from './icons/small/apollo-icon.png';
+import bootstrap_small from './icons/small/bootstrap-icon.png';
+import csharp_small from './icons/small/c-sharp-icon.png';
+import expressjs_small from './icons/small/express-js-icon.png';
+import facebook_small from './icons/small/facebook-icon.png';
+import graphql_small from './icons/small/graphql-icon.png';
+import html_small from './icons/small/html-icon.png';
+import instagram_small from './icons/small/instagram-icon.png';
+import java_small from './icons/small/java-icon.png';
+import javascript_small from './icons/small/javascript-icon.png';
+import linkedin_small from './icons/small/likedln-icon.png';
+import mongodb_small from './icons/small/mongodb-icon.png';
+import nextjs_icon_small from './icons/small/nextjs-icon.png';
+import nodejs_icon_small from './icons/small/node-js-icon.png';
+import oracle_small from './icons/small/oracle-icon.png';
+import redux_small from './icons/small/redux-icon.png';
+import springboot_small from './icons/small/spring-boot-icon.png';
+import sql_small from './icons/small/sql-icon.png';
+
 import { LuGraduationCap } from 'react-icons/lu';
 import { StaticImageData } from 'next/image';
 import React, { JSX } from 'react';
+
+
+
 
 
 // Type Definitions
@@ -126,6 +155,30 @@ export const assets: Record<string, StaticImageData> = {
   send_icon_dark,
   right_arrow_bold,
   right_arrow_bold_dark,
+  nodejs_small,
+  react_small,
+  nextjs_small,
+  typescript_small,
+  docker_small,
+  github_small,
+  apollo_small,
+  bootstrap_small,
+  csharp_small,
+  expressjs_small,
+  facebook_small,
+  graphql_small,
+  html_small,
+  instagram_small,
+  java_small,
+  javascript_small,
+  linkedin_small,
+  mongodb_small,
+  nextjs_icon_small,
+  nodejs_icon_small,
+  oracle_small,
+  redux_small,
+  springboot_small,
+  sql_small,
 };
 
 export const workData: WorkItem[] = [

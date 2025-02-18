@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, setIsDarkMode }) => {
             src={isDarkMode ? assets.logo_dark : assets.logo}
             alt="logo-personal"
             className="w-48 cursor-pointer mr-14 "
-            
+            priority
           />
         </a>
 

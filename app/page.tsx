@@ -9,6 +9,7 @@ import Services from '@/app/components/Services';
 import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
 import Experience from '@/app/components/Experience/Experience';
+import SplashCursor from '@/app/components/reactbits/animations/SplashCursor';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -35,7 +36,9 @@ export default function Home() {
 
   return (
     <div>
+      <SplashCursor/>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+     
       <main>
         <Header isDarkMode={isDarkMode} />
         <About isDarkMode={isDarkMode} />

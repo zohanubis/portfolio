@@ -1,13 +1,27 @@
 'use client';
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { assets } from "@/assets/assets";
-import { motion } from "motion/react";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { assets } from '@/assets/assets';
+import { motion } from 'framer-motion';
+//React Bits
+import SplitText from '@/app/components/reactbits/animations/SplitText';
+import CircularText from '@/app/components/reactbits/animations/CircularText';
 
 const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const btnClass =
-    "px-10 py-3 border rounded-full flex items-center gap-2 transition duration-300";
+    'px-10 py-3 border rounded-full flex items-center gap-2 transition duration-300';
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; 
+  }
+  
   return (
     <div
       id="home"
@@ -15,20 +29,30 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
     >
       {/* Ảnh đại diện với hiệu ứng scale */}
       <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-      >
-        <Image
-          src={assets.profile_img}
-          alt="Profile Image"
-          className="rounded-full w-32"
-          width={128}
-          height={128}
-          priority
-          unoptimized
-        />
-      </motion.div>
+  initial={{ scale: 0 }}
+  whileInView={{ scale: 1 }}
+  transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
+  className="relative flex justify-center items-center"
+>
+  <CircularText 
+    text="ZOHANUBIS"
+    isDarkMode={isDarkMode}
+  />
+  <div className="absolute inset-0 flex justify-center items-center">
+    <div className="w-32 h-32 rounded-full overflow-hidden">
+      <Image
+        src={assets.profile_img}
+        alt="Profile Image"
+        className="object-cover w-full h-full"
+        width={128}
+        height={128}
+        priority
+        unoptimized
+      />
+    </div>
+  </div>
+</motion.div>
+
 
       {/* Tiêu đề với hiệu ứng fade-in */}
       <motion.h3
@@ -40,15 +64,22 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
         Hi! I`m Zohanubis
         <Image src={assets.hand_icon} alt="Wave Icon" className="w-6" />
       </motion.h3>
-
-      <motion.h1
-        className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+      <motion.div
+        initial={{opacity:0,y:50}}
+        whileInView={{opacity:1, y:0}}
+        transition={{duration: 1, delay:0.2}}
       >
-        Fullstack Web Developer
-      </motion.h1>
+        <SplitText
+          text='Fullstack Web Developer'
+          className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"
+          delay={150}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          threshold={0.2}
+          rootMargin="-50px"
+          />
+      </motion.div>
+      
 
       <motion.p
         className="max-w-2xl mx-auto font-Ovo"
@@ -69,7 +100,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
           <Link
             href="#contact"
-            className={`${btnClass} bg-black text-white border-white dark:bg-white dark:text-black dark:border-black`}
+            className={`${btnClass} bg-[#134B70] text-white border-white dark:bg-[#B9E5E8] dark:text-black dark:border-black`}
           >
             Contact Me
             <Image
@@ -86,7 +117,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
           <a
             href="/Web_Developer_Zohanubis.pdf"
             download
-            className={`${btnClass} border-gray-500 dark:border-white bg-white text-black dark:text-black`}
+            className={`${btnClass} border-gray-500 dark:border-white bg-[#DFF2EB] text-black dark:text-black`}
             aria-label="Download My Resume"
           >
             My Resume
