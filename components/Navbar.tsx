@@ -12,7 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, setIsDarkMode }) => {
   const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef<HTMLUListElement>(null);
 
-  const menuItems = ['Home', 'About me', 'Services', 'My Work', 'Contact me'];
+  const menuItems = ['Home', 'About me', 'Services', 'My Work'];
 
   const toggleMenu = (isOpen: boolean) => {
     if (sideMenuRef.current) {
@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, setIsDarkMode }) => {
             <Image src={isDarkMode ? assets.sun_icon : assets.moon_icon} alt="darkmode-toggle" className="w-6" width={24} height={24} />
           </button>
 
-          <a href="#contact" className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50">
+          <a href="#contactme" className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50">
             Contact
             <Image src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon} alt="contact" className="w-3" width={12} height={12} />
           </a>

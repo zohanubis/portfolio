@@ -5,5 +5,6 @@ export interface Service {
     title: string;
     description: string;
     link: string;
+  skills: { name: string; icon: string | StaticImageData; url : string }[];
   }
   

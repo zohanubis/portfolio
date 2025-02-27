@@ -1,15 +1,15 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import Navbar from './components/Navbar';
-import Header from '@/app/components/Header';
-import About from '@/app/components/About';
-import Services from '@/app/components/Services';
+import Navbar from '../components/Navbar';
+import Header from '@/components/Header';
+import About from '@/modules/HomePage/About';
+import Services from '@/modules/HomePage/Services';
 // import Work from '@/app/components/Work';
-import Contact from '@/app/components/Contact';
-import Footer from '@/app/components/Footer';
-import Experience from '@/app/components/Experience/Experience';
-import SplashCursor from '@/app/components/reactbits/animations/SplashCursor';
+import Contact from '@/modules/HomePage/Contact';
+import Footer from '@/components/Footer';
+import Experience from '@/modules/HomePage/Experience/Experience';
+// import SplashCursor from '@/components/reactbits/animations/SplashCursor';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -17,8 +17,11 @@ export default function Home() {
   useEffect(() => {
     // Chỉ chạy trên client
     const getInitialDarkMode = () => {
-      return localStorage.getItem('theme') === 'dark' || 
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      return (
+        localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      );
     };
 
     setIsDarkMode(getInitialDarkMode());
@@ -36,14 +39,14 @@ export default function Home() {
 
   return (
     <div>
-      <SplashCursor/>
+      {/* <SplashCursor/> */}
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-     
+
       <main>
         <Header isDarkMode={isDarkMode} />
-        <About isDarkMode={isDarkMode} />
+        <About />
         <Services />
-        <Experience isDarkMode = {isDarkMode}/>
+        <Experience isDarkMode={isDarkMode} />
         <Contact />
       </main>
       <Footer isDarkMode={isDarkMode} />

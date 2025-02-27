@@ -3,10 +3,10 @@ import { memo, useCallback, useMemo } from "react";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import { motion, AnimatePresence } from "framer-motion";
 import TechList from "./TechList";
-import { ExperienceItemProps } from "@/app/interfaces/experienceItemProps.interface";
+import { ExperienceItemProps } from "@/interfaces/experienceItemProps.interface";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import { setActiveTab, setActiveTimeline } from "@/app/redux/slices/tabSlice";
+import { RootState } from "@/redux/store";
+import { setActiveTab, setActiveTimeline } from "@/redux/slices/tabSlice";
 
 const TABS = ["description", "technologies", "responsibilities"] as const;
 

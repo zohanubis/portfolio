@@ -1,26 +1,22 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { assets } from '@/assets/assets';
 import { motion } from 'framer-motion';
 //React Bits
-import SplitText from '@/app/components/reactbits/animations/SplitText';
-import CircularText from '@/app/components/reactbits/animations/CircularText';
+import SplitText from '@/components/reactbits/animations/SplitText';
+import CircularText from '@/components/reactbits/animations/CircularText';
+
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
 
 const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const btnClass =
     'px-10 py-3 border rounded-full flex items-center gap-2 transition duration-300';
 
-  const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; 
-  }
   
   return (
     <div
@@ -77,6 +73,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
           animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
           threshold={0.2}
           rootMargin="-50px"
+          onLetterAnimationComplete={handleAnimationComplete}
           />
       </motion.div>
       

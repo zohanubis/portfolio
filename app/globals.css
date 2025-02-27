@@ -1,16 +1,81 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  font-family: 'Ovo', sans-serif;
-}
-html {
-  --line-color: #e5e7eb;
+/* Định nghĩa biến CSS cho các màu */
+@layer base {
+  :root {
+    --color-light-hover: #ffffff;
+    --color-dark-hover: #292A2D;
+
+    --color-hologram-100: #A2D2FF;
+    --color-hologram-200: #3B82F6;
+    --color-hologram-300: #7A4D9C;
+    --color-hologram-400: #0D0D0D;
+    --color-hologram-500: #1A1A1A;
+
+    --color-light-theme-100: #DFF2EB;
+    --color-light-theme-200: #B9E5E8;
+    --color-light-theme-300: #7AB2D3;
+    --color-light-theme-400: #4A628A;
+
+    --color-dark-theme-100: #201E43;
+    --color-dark-theme-200: #134B70;
+    --color-dark-theme-300: #508C9B;
+    --color-dark-theme-400: #EEEEEE;
+
+    --background-gradient: linear-gradient(180deg, var(--color-light-theme-100), var(--color-light-theme-200), var(--color-light-theme-300), var(--color-light-theme-400));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-gradient: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200), var(--color-dark-theme-100));
+    }
+  }
 }
 
-/* Khi ở Dark Mode */
-html.dark {
-  --line-color: #374151;
+body {
+  color: var(--foreground);
+  background: var(--background-gradient);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease-in-out;
+}
+.dark {
+  --background-gradient: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200));
 }
 
+/* Thêm các tiện ích mở rộng */
+@layer utilities {
+  /* Background Colors */
+  .bg-light-hover { background-color: var(--color-light-hover); }
+  .bg-dark-hover { background-color: var(--color-dark-hover); }
+
+  .bg-hologram-100 { background-color: var(--color-hologram-100); }
+  .bg-hologram-200 { background-color: var(--color-hologram-200); }
+  .bg-hologram-300 { background-color: var(--color-hologram-300); }
+  .bg-hologram-400 { background-color: var(--color-hologram-400); }
+  .bg-hologram-500 { background-color: var(--color-hologram-500); }
+
+  .bg-light-theme-100 { background-color: var(--color-light-theme-100); }
+  .bg-light-theme-200 { background-color: var(--color-light-theme-200); }
+  .bg-light-theme-300 { background-color: var(--color-light-theme-300); }
+  .bg-light-theme-400 { background-color: var(--color-light-theme-400); }
+
+  .bg-dark-theme-100 { background-color: var(--color-dark-theme-100); }
+  .bg-dark-theme-200 { background-color: var(--color-dark-theme-200); }
+  .bg-dark-theme-300 { background-color: var(--color-dark-theme-300); }
+  .bg-dark-theme-400 { background-color: var(--color-dark-theme-400); }
+
+  /* Background Gradient */
+  .bg-light-theme { background: var(--background-gradient); }
+  .bg-dark-theme { background: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200), var(--color-dark-theme-100)); }
+
+  /* Font Family */
+  .font-outfit { font-family: 'Outfit', sans-serif; }
+  .font-ovo { font-family: 'Ovo', sans-serif; }
+
+  /* Box Shadow */
+  .shadow-black { @apply drop-shadow-lg; }
+  .shadow-white { @apply drop-shadow-md; }
+
+  /* Grid Template Columns */
+  .grid-cols-auto { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}

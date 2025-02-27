@@ -1,11 +1,11 @@
-'use client'
-import SectionHeading from "@/app/components/SectionHeading";
-import { experienceData } from "@/assets/assets";
-import React, { useState } from "react";
-import { VerticalTimeline } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import ExperienceItem from "./ExperienceItem";
-import { motion } from "framer-motion";
+'use client';
+import SectionHeading from '@/components/SectionHeading';
+import { experienceData } from '@/assets/assets';
+import React, { useState } from 'react';
+import { VerticalTimeline } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import ExperienceItem from './ExperienceItem';
+import { motion } from 'framer-motion';
 
 interface ExperienceProps {
   isDarkMode: boolean;

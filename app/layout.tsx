@@ -1,7 +1,7 @@
 import { Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Providers } from "./redux/providers"; 
+import { Providers } from "@/redux/providers"; 
 
 const outfit = OutfitFont({
   subsets: ["latin"],
@@ -23,11 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden bg-light-theme dark:bg-dark-theme dark:text-white`}
-      >
-        <Providers>{children}</Providers> {/* Bọc Redux bằng Client Component */}
+  className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}
+  style={{ background: "var(--background-gradient)" }}
+>
+        <Providers>{children}</Providers> 
       </body>
     </html>
   );

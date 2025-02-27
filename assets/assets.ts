@@ -61,14 +61,15 @@ import oracle_small from './icons/small/oracle-icon.png';
 import redux_small from './icons/small/redux-icon.png';
 import springboot_small from './icons/small/spring-boot-icon.png';
 import sql_small from './icons/small/sql-icon.png';
+import vercel_small from './icons/small/vercel-icon.png';
+import rental_icon from './icons/small/rental-icon.png';
+import managenment_icon from './icons/small/management-icon.png';
+import mobile_shop_icon from './icons/small/mobile-shop-icon.png';
+import intellij_idea_small from './icons/small/intellij-idea-small.png';
 
 import { LuGraduationCap } from 'react-icons/lu';
 import { StaticImageData } from 'next/image';
 import React, { JSX } from 'react';
-
-
-
-
 
 // Type Definitions
 type WorkItem = {
@@ -82,13 +83,19 @@ type ServiceItem = {
   title: string;
   description: string;
   link: string;
+  skills: { name: string; icon: string | StaticImageData; url: string }[];
+};
+
+type DescriptionItem = {
+  icon: string | StaticImageData;
+  text: string;
 };
 
 type InfoItem = {
   icon: string | StaticImageData;
   iconDark: string | StaticImageData;
   title: string;
-  description: string;
+  description: DescriptionItem[]; // Thay đổi từ string sang array
 };
 
 type ExperienceItem = {
@@ -114,7 +121,6 @@ type ExperienceItem = {
   icon: JSX.Element;
   date: string;
 };
-
 
 export const assets: Record<string, StaticImageData> = {
   user_image,
@@ -179,6 +185,11 @@ export const assets: Record<string, StaticImageData> = {
   redux_small,
   springboot_small,
   sql_small,
+  vercel_small,
+  rental_icon,
+  mobile_shop_icon,
+  managenment_icon,
+  intellij_idea_small,
 };
 
 export const workData: WorkItem[] = [
@@ -190,28 +201,56 @@ export const workData: WorkItem[] = [
 
 export const serviceData: ServiceItem[] = [
   {
-    icon: assets.web_icon,
-    title: 'Fullstack Web Development',
-    description: 'Building modern, high-performance web applications using React, Next.js, and Node.js.',
+    icon: assets.frontend_icon,
+    title: 'Frontend Development',
+    description:
+      'Creating responsive and interactive UIs with ReactJS, TypeScript, and Tailwind CSS.',
     link: '',
+    skills: [
+      { name: 'React', icon: assets.react_small, url: 'https://react.dev/' },
+      { name: 'Next.js', icon: assets.nextjs_small, url: 'https://nextjs.org/' },
+      { name: 'TypeScript', icon: assets.typescript_small, url: 'https://www.typescriptlang.org/' },
+      { name: 'Redux', icon: assets.redux_small, url: 'https://redux.js.org/' },
+    ],
   },
   {
     icon: assets.backend_icon,
     title: 'Backend Development',
-    description: 'Developing scalable and secure backend systems with Java (Spring Boot), C# (ASP.NET), and Node.js.',
+    description:
+      'Developing scalable and secure backend systems with Java (Spring Boot), C# (ASP.NET), and Node.js.',
     link: '',
-  },
-  {
-    icon: assets.frontend_icon,
-    title: 'Frontend Development',
-    description: 'Creating responsive and interactive UIs with ReactJS, TypeScript, and Tailwind CSS.',
-    link: '',
+    skills: [
+      { name: 'Node.js', icon: assets.nodejs_small, url: 'https://nodejs.org/' },
+      { name: 'Express.js', icon: assets.expressjs_small, url: 'https://expressjs.com/' },
+      {
+        name: 'Spring Boot',
+        icon: assets.springboot_small,
+        url: 'https://spring.io/projects/spring-boot',
+      },
+      { name: 'MongoDB', icon: assets.mongodb_small, url: 'https://www.mongodb.com/' },
+      {
+        name: 'SQL',
+        icon: assets.sql_small,
+        url: 'https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16',
+      },
+    ],
   },
   {
     icon: assets.devops_icon,
     title: 'DevOps & CI/CD',
-    description: 'Setting up automated workflows with Docker, GitHub Actions, and cloud deployment.',
+    description:
+      'Setting up automated workflows with Docker, GitHub Actions, and cloud deployment.',
     link: '',
+    skills: [
+      { name: 'Docker', icon: assets.docker_small, url: 'https://www.docker.com/' },
+      {
+        name: 'GitHub Actions',
+        icon: assets.github_small,
+        url: 'https://github.com/features/actions',
+      },
+      { name: 'Firebase', icon: assets.firebase, url: 'https://firebase.google.com/' },
+      { name: 'Vercel', icon: assets.vercel_small, url: 'https://vercel.com/' },
+    ],
   },
 ];
 
@@ -220,19 +259,15 @@ export const infoList: InfoItem[] = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: 'Technologies',
-    description: 'Java, C#, Node.js, ReactJS, NextJS, JavaScript, TypeScript, Tailwind CSS',
-  },
-  {
-    icon: assets.edu_icon,
-    iconDark: assets.edu_icon_dark,
-    title: 'Education',
-    description: 'IT Student at Industrial University',
-  },
-  {
-    icon: assets.project_icon,
-    iconDark: assets.project_icon_dark,
-    title: 'Projects',
-    description: 'Developed multiple web applications, including e-commerce and management systems',
+    description: [
+      { icon: nodejs_small, text: 'Node.js' },
+      { icon: csharp_small, text: 'C#' },
+      { icon: react_small, text: 'ReactJS' },
+      { icon: nextjs_icon_small, text: 'NextJS' },
+      { icon: typescript_small, text: 'TypeScript' },
+      { icon: docker_small, text: 'Docker' },
+      { icon: github_small, text: 'GitHub Actions' },
+    ],
   },
 ];
 
@@ -301,8 +336,57 @@ export const experienceData: ExperienceItem[] = [
   },
 ];
 
+export type Technology = {
+  name: string;
+  image: string | StaticImageData;
+};
 
+const backendTech: Technology[] = [
+  { name: 'Node.js', image: assets.nodejs_small },
+  { name: 'Express.js', image: assets.expressjs_small },
+  { name: 'Spring Boot', image: assets.springboot_small },
+  { name: 'Java', image: assets.java_small },
+  { name: 'C#', image: assets.csharp_small },
+];
 
-export const toolsData: (string | StaticImageData)[] = [assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git];
+const frontendTech: Technology[] = [
+  { name: 'React.js', image: assets.react_small },
+  { name: 'Next.js', image: assets.nextjs_small },
+  { name: 'Redux', image: assets.redux_small },
+  { name: 'JavaScript', image: assets.javascript_small },
+  { name: 'TypeScript', image: assets.typescript_small },
+];
 
-  
+const databaseTech: Technology[] = [
+  { name: 'MongoDB', image: assets.mongodb_small },
+  { name: 'SQL', image: assets.sql_small },
+];
+
+// Nhóm DevOps & Tools
+const devopsTech: Technology[] = [
+  { name: 'Docker', image: assets.docker_small },
+  { name: 'GitHub', image: assets.github_small },
+  { name: 'Vercel', image: assets.vercel_small },
+];
+
+const apiTech: Technology[] = [
+  { name: 'GraphQL', image: assets.graphql_small },
+  { name: 'Apollo GraphQL', image: assets.apollo_small },
+];
+
+export const technologiesData: Technology[] = [
+  ...backendTech,
+  ...frontendTech,
+  ...databaseTech,
+  ...devopsTech,
+  ...apiTech,
+];
+
+export const toolsData: (string | StaticImageData)[] = [
+  assets.vscode,
+  assets.intellij_idea_small,
+  assets.firebase,
+  assets.mongodb,
+  assets.figma,
+  assets.git,
+];
