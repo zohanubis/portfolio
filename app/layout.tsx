@@ -24,10 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-  className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}
-  style={{ background: "var(--background-gradient)" }}
->
+
+<body
+        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}
+        style={{ background: "var(--background-gradient)" }}
+      >
         <Providers>{children}</Providers> 
       </body>
     </html>

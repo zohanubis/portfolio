@@ -1,11 +1,11 @@
 'use client'
 
 import { assets } from '@/assets/assets'
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-const Contact = () => {
+const Contact = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [result, setResult] = useState<string>('')
 
@@ -31,7 +31,6 @@ const Contact = () => {
       if (data.success) {
         setResult('Form Submitted Successfully 🎉')
         setFormData({ name: '', email: '', message: '' })
-        event.currentTarget.reset()
       } else {
         setResult('Submission Failed. Please try again.')
         console.error('Error:', data)
@@ -42,14 +41,19 @@ const Contact = () => {
     }
   }
 
+  // Memoize styles for better performance
+  const textColor = useMemo(() => (isDarkMode ? 'text-white' : 'text-gray-900'), [isDarkMode])
+  const borderColor = useMemo(() => (isDarkMode ? 'border-gray-600' : 'border-gray-400'), [isDarkMode])
+  const inputBg = useMemo(() => (isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'), [isDarkMode])
+
   return (
     <div
       id="contactme"
-      className="w-full px-[12%] py-10 scroll-mt-20  bg-center bg-no-repeat bg-[length:90%_auto] dark:bg-none"
+      className="w-full px-[12%] py-10 scroll-mt-20 bg-center bg-no-repeat bg-[length:90%_auto] dark:bg-none"
     >
       {/* Tiêu đề */}
       <motion.h4
-        className="text-center mb-2 text-lg font-Ovo text-gray-800 dark:text-gray-300"
+        className={`text-center mb-2 text-lg font-Ovo ${textColor}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -58,7 +62,7 @@ const Contact = () => {
       </motion.h4>
 
       <motion.h2
-        className="text-center text-5xl font-Ovo text-gray-900 dark:text-white"
+        className={`text-center text-5xl font-Ovo ${textColor}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -68,12 +72,12 @@ const Contact = () => {
 
       {/* Mô tả */}
       <motion.p
-        className="mx-auto max-w-2xl mt-5 mb-12 text-center font-Ovo text-gray-700 dark:text-gray-400"
+        className={`mx-auto max-w-2xl mt-5 mb-12 text-center font-Ovo ${isDarkMode ? 'text-gray-400' : 'text-gray-700'}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        If you have any questions or feedback, feel free to reach out to me. I`m always open to connecting!
+        If you have any questions or feedback, feel free to reach out to me. I&apos;m always open to connecting!
       </motion.p>
 
       {/* Form */}
@@ -92,7 +96,7 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full p-3 outline-none border rounded-md border-gray-400 bg-white dark:bg-gray-800 dark:text-white transition focus:ring-2 focus:ring-blue-400"
+            className={`w-full p-3 outline-none border rounded-md transition focus:ring-2 focus:ring-blue-400 ${borderColor} ${inputBg}`}
             whileFocus={{ scale: 1.02 }}
           />
 
@@ -103,7 +107,7 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full p-3 outline-none border rounded-md border-gray-400 bg-white dark:bg-gray-800 dark:text-white transition focus:ring-2 focus:ring-blue-400"
+            className={`w-full p-3 outline-none border rounded-md transition focus:ring-2 focus:ring-blue-400 ${borderColor} ${inputBg}`}
             whileFocus={{ scale: 1.02 }}
           />
         </div>
@@ -115,7 +119,7 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full p-4 outline-none border border-gray-400 rounded-md bg-white dark:bg-gray-800 dark:text-white transition focus:ring-2 focus:ring-blue-400"
+          className={`w-full p-4 outline-none border rounded-md transition focus:ring-2 focus:ring-blue-400 ${borderColor} ${inputBg}`}
           whileFocus={{ scale: 1.02 }}
         />
 
@@ -129,7 +133,7 @@ const Contact = () => {
           <Image src={assets.right_arrow_white} alt="submit" className="w-4 " />
         </motion.button>
 
-        <p className="mt-4 text-center text-gray-800 dark:text-gray-300">{result}</p>
+        <p className={`mt-4 text-center ${isDarkMode ? 'text-gray-300' : 'text-gray-800'}`}>{result}</p>
       </motion.form>
     </div>
   )

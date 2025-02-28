@@ -3,6 +3,7 @@
 /* Định nghĩa biến CSS cho các màu */
 @layer base {
   :root {
+    --color-text: #000000;
     --color-light-hover: #ffffff;
     --color-dark-hover: #292A2D;
 
@@ -17,34 +18,25 @@
     --color-light-theme-300: #7AB2D3;
     --color-light-theme-400: #4A628A;
 
-    --color-dark-theme-100: #201E43;
-    --color-dark-theme-200: #134B70;
-    --color-dark-theme-300: #508C9B;
-    --color-dark-theme-400: #EEEEEE;
-
+    /* Background gradient cho theme sáng */
     --background-gradient: linear-gradient(180deg, var(--color-light-theme-100), var(--color-light-theme-200), var(--color-light-theme-300), var(--color-light-theme-400));
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background-gradient: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200), var(--color-dark-theme-100));
-    }
+  /* Biến màu cho theme tối (gradient hoàn toàn) */
+  .dark {
+    --color-text: #EEEEEE;
+    --background-gradient: linear-gradient(180deg, #201E43, #134B70, #201E43, #134B70);
   }
 }
 
 body {
-  color: var(--foreground);
   background: var(--background-gradient);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background 0.3s ease-in-out;
-}
-.dark {
-  --background-gradient: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200));
+  color: var(--color-text);
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 /* Thêm các tiện ích mở rộng */
 @layer utilities {
-  /* Background Colors */
   .bg-light-hover { background-color: var(--color-light-hover); }
   .bg-dark-hover { background-color: var(--color-dark-hover); }
 
@@ -59,22 +51,15 @@ body {
   .bg-light-theme-300 { background-color: var(--color-light-theme-300); }
   .bg-light-theme-400 { background-color: var(--color-light-theme-400); }
 
-  .bg-dark-theme-100 { background-color: var(--color-dark-theme-100); }
-  .bg-dark-theme-200 { background-color: var(--color-dark-theme-200); }
-  .bg-dark-theme-300 { background-color: var(--color-dark-theme-300); }
-  .bg-dark-theme-400 { background-color: var(--color-dark-theme-400); }
-
-  /* Background Gradient */
-  .bg-light-theme { background: var(--background-gradient); }
-  .bg-dark-theme { background: linear-gradient(180deg, var(--color-dark-theme-100), var(--color-dark-theme-200), var(--color-dark-theme-100)); }
+  .bg-dark-theme { background: var(--background-gradient); }
 
   /* Font Family */
   .font-outfit { font-family: 'Outfit', sans-serif; }
   .font-ovo { font-family: 'Ovo', sans-serif; }
 
   /* Box Shadow */
-  .shadow-black { @apply drop-shadow-lg; }
-  .shadow-white { @apply drop-shadow-md; }
+  .shadow-black { box-shadow: 4px 4px 0px #000; }
+  .shadow-white { box-shadow: 4px 4px 0px #fff; }
 
   /* Grid Template Columns */
   .grid-cols-auto { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }

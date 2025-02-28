@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import FloatingListItem from '@/components/FloatingListTech';
 import React from 'react';
 
-const About = () => {
+const About = ({isDarkMode}:{isDarkMode:boolean}) => {
   return (
-    <div id="aboutme" className="w-full px-[12%] py-10 scroll-mt-20 dark:text-white">
+    <div id="aboutme" className="w-full px-[12%] py-10 scroll-mt-20 text-black dark:text-white">
       <motion.h4
-        className="text-center mb-2 text-lg font-Ovo"
+        className={`text-center mb-2 text-lg font-Ovo ${isDarkMode ? 'text-white' : 'text-black'}`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -19,7 +19,7 @@ const About = () => {
       </motion.h4>
 
       <motion.h2
-        className="text-center text-5xl font-Ovo"
+        className={`text-center text-5xl font-Ovo ${isDarkMode ? 'text-white' : 'text-black'}`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -41,7 +41,7 @@ const About = () => {
 
         <div className="flex-1">
           <motion.p
-            className="mb-10 max-w-2xl font-Ovo text-left sm:text-justify md:text-center"
+            className={`mb-10 max-w-2xl font-Ovo text-left sm:text-justify md:text-center ${isDarkMode ? 'text-white' : 'text-black'}`}
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const About = () => {
           </motion.p>
 
           <motion.h2
-            className="my-6 text-xl font-Ovo dark:text-white"
+            className={`my-6 text-xl font-Ovo ${isDarkMode ? 'text-white' : 'text-black'} `}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,7 +77,7 @@ const About = () => {
 
           {/* Tools */}
           <motion.h4
-            className="my-6 text-gray-700 font-Ovo dark:text-gray-300"
+            className= {`my-6 font-Ovo ${isDarkMode ? 'text-white' : 'text-black'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
