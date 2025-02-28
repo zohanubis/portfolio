@@ -66,6 +66,12 @@ import rental_icon from './icons/small/rental-icon.png';
 import managenment_icon from './icons/small/management-icon.png';
 import mobile_shop_icon from './icons/small/mobile-shop-icon.png';
 import intellij_idea_small from './icons/small/intellij-idea-small.png';
+import redis_icon_small from './icons/small/redis-icon.png';
+import cloudinary_icon_small from './icons/small/cloudflare-icon.png';
+import rabbitmq_icon_small from './icons/small/rabbitmq-icon.png';
+import jwt_icon_small from './icons/small/jwt-icon.png';
+import fastApi_icon_small from './icons/small/fastApi-icon.png';
+import tailwind_icon_small from './icons/small/tailwild-icon.png';
 
 import { LuGraduationCap } from 'react-icons/lu';
 import { StaticImageData } from 'next/image';
@@ -98,20 +104,23 @@ type InfoItem = {
   description: DescriptionItem[]; // Thay đổi từ string sang array
 };
 
+// Type Definitions
+type TechnologyItem = { name: string; image: StaticImageData };
+
 type ExperienceItem = {
   id: string;
   title: string;
   location: string;
   description: string;
   technologies?: Partial<{
-    frontend: string[];
-    backend: string[];
-    database: string[];
-    messaging: string[];
-    storage: string[];
-    devops: string[];
-    authentication: string[];
-    other: string[];
+    frontend: TechnologyItem[];
+    backend: TechnologyItem[];
+    database: TechnologyItem[];
+    messaging: TechnologyItem[];
+    storage: TechnologyItem[];
+    devops: TechnologyItem[];
+    authentication: TechnologyItem[];
+    other: TechnologyItem[];
   }>;
   responsibilities?: Partial<{
     frontend: string[];
@@ -190,6 +199,13 @@ export const assets: Record<string, StaticImageData> = {
   mobile_shop_icon,
   managenment_icon,
   intellij_idea_small,
+  redis_icon_small,
+  cloudinary_icon_small,
+  rabbitmq_icon_small,
+  jwt_icon_small,
+  fastApi_icon_small,
+  tailwind_icon_small,
+
 };
 
 export const workData: WorkItem[] = [
@@ -273,64 +289,98 @@ export const infoList: InfoItem[] = [
 
 export const experienceData: ExperienceItem[] = [
   {
-    id: 'cyberskill-intern',
-    title: 'Fullstack Web Developer Intern',
-    location: 'Cyberskill Software Solutions',
+    id: "cyberskill-intern",
+    title: "Fullstack Web Developer Intern",
+    location: "Cyberskill Software Solutions",
     description:
-      'Contributed to both frontend and backend development for the Student Life - Rental Management project. Designed UI/UX, built APIs, and optimized database structures.',
+      "Contributed to both frontend and backend development for the Student Life - Rental Management project. Designed UI/UX, built APIs, and optimized database structures.",
     icon: React.createElement(LuGraduationCap),
-    date: 'Sep 2024 - Dec 2024',
+    date: "Sep 2024 - Dec 2024",
     technologies: {
-      frontend: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js', 'Express.js', 'GraphQL', 'MongoDB'],
-      devops: ['Git', 'Docker', 'GitHub Actions'],
+      frontend: [
+        { name: "React", image: react_small },
+        { name: "Next.js", image: nextjs_icon_small },
+        { name: "TypeScript", image: typescript_small },
+      ],
+      backend: [
+        { name: "Node.js", image: nodejs_small },
+        { name: "Express.js", image: expressjs_small },
+        { name: "GraphQL", image: graphql_small },
+        { name: "MongoDB", image: assets.mongodb },
+      ],
+      devops: [
+        { name: "Git", image: assets.git },
+        { name: "Docker", image: docker_small },
+        { name: "GitHub Actions", image: github_small },
+      ],
     },
     responsibilities: {
       frontend: [
-        'Designed and developed user-friendly interfaces.',
-        'Implemented features for rental listings, search, and filtering.',
-        'Ensured responsive design across desktop and mobile platforms.',
+        "Designed and developed user-friendly interfaces.",
+        "Implemented features for rental listings, search, and filtering.",
+        "Ensured responsive design across desktop and mobile platforms.",
       ],
       backend: [
-        'Designed and structured MongoDB collections.',
-        'Developed RESTful and GraphQL APIs for rental management.',
-        'Optimized API performance, conducted testing, and debugged issues.',
+        "Designed and structured MongoDB collections.",
+        "Developed RESTful and GraphQL APIs for rental management.",
+        "Optimized API performance, conducted testing, and debugged issues.",
       ],
     },
   },
   {
-    id: 'iu-student-management',
-    title: 'Fullstack Web Developer',
-    location: 'Industrial University of Ho Chi Minh City',
+    id: "iu-student-management",
+    title: "Fullstack Web Developer",
+    location: "Industrial University of Ho Chi Minh City",
     description:
-      'Developed a student activity management and QR code attendance system. Enabled activity registration, participation tracking, and automated notifications.',
+      "Developed a student activity management and QR code attendance system. Enabled activity registration, participation tracking, and automated notifications.",
     icon: React.createElement(LuGraduationCap),
-    date: 'Oct 2024 - Dec 2024',
+    date: "Oct 2024 - Dec 2024",
     technologies: {
-      frontend: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js', 'Express.js', 'FastAPI'],
-      database: ['MongoDB', 'Redis'],
-      messaging: ['RabbitMQ (if implemented)'],
-      storage: ['Cloudinary'],
-      authentication: ['JWT'],
-      devops: ['Docker', 'GitHub Actions', 'Firebase Cloud Messaging (FCM)'],
+      frontend: [
+        { name: "React", image: react_small },
+        { name: "Next.js", image: nextjs_icon_small },
+        { name: "TypeScript", image: typescript_small },
+      ],
+      backend: [
+        { name: "Node.js", image: nodejs_small },
+        { name: "Express.js", image: expressjs_small},
+        { name: "FastAPI", image: fastApi_icon_small },
+      ],
+      database: [
+        { name: "MongoDB", image: assets.mongodb },
+        { name: "Redis", image: redis_icon_small },
+      ],
+      messaging: [
+        { name: "RabbitMQ", image:rabbitmq_icon_small },
+      ],
+      storage: [
+        { name: "Cloudinary", image: cloudinary_icon_small },
+      ],
+      authentication: [
+        { name: "JWT", image: jwt_icon_small },
+      ],
+      devops: [
+        { name: "Docker", image: docker_small},
+        { name: "GitHub Actions", image: github_small },
+        { name: "Firebase Cloud Messaging (FCM)", image: firebase },
+      ],
     },
     responsibilities: {
       frontend: [
-        'Designed UI/UX using Figma and developed a responsive interface.',
-        'Implemented features for activity display and QR code attendance tracking.',
-        'Optimized performance using Next.js (SSR, SSG).',
+        "Designed UI/UX using Figma and developed a responsive interface.",
+        "Implemented features for activity display and QR code attendance tracking.",
+        "Optimized performance using Next.js (SSR, SSG).",
       ],
       backend: [
-        'Developed GraphQL APIs using Express.js and MongoDB.',
-        'Implemented a microservices architecture.',
-        'Integrated Redis caching and distributed locks.',
-        'Managed image storage with Cloudinary.',
+        "Developed GraphQL APIs using Express.js and MongoDB.",
+        "Implemented a microservices architecture.",
+        "Integrated Redis caching and distributed locks.",
+        "Managed image storage with Cloudinary.",
       ],
       devops: [
-        'Deployed the system using Docker.',
-        'Integrated RabbitMQ for message queue processing (if implemented).',
-        'Implemented Firebase Cloud Messaging (FCM) for real-time notifications.',
+        "Deployed the system using Docker.",
+        "Integrated RabbitMQ for message queue processing.",
+        "Implemented Firebase Cloud Messaging (FCM) for real-time notifications.",
       ],
     },
   },

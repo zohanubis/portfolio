@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import { setActiveTab } from "@/app/redux/slices/tabSlice";
+import { RootState } from "@/redux/store";
+import { setActiveTab } from "@/redux/slices/tabSlice";
 
 interface TabsProps {
   index: number;
