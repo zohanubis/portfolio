@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import FloatingListItem from '@/components/FloatingListTech';
 import React from 'react';
 
-const About = ({isDarkMode}:{isDarkMode:boolean}) => {
+const About = ({ isDarkMode }: { isDarkMode: boolean }) => {
   return (
     <div id="aboutme" className="w-full px-[12%] py-10 scroll-mt-20 text-black dark:text-white">
       <motion.h4
@@ -41,7 +41,9 @@ const About = ({isDarkMode}:{isDarkMode:boolean}) => {
 
         <div className="flex-1">
           <motion.p
-            className={`mb-10 max-w-2xl font-Ovo text-left sm:text-justify md:text-center ${isDarkMode ? 'text-white' : 'text-black'}`}
+            className={`mb-10 max-w-2xl font-Ovo text-left sm:text-justify md:text-center ${
+              isDarkMode ? 'text-white' : 'text-black'
+            }`}
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +66,7 @@ const About = ({isDarkMode}:{isDarkMode:boolean}) => {
             Technologies
           </motion.h2>
           <motion.ul
-            className="flex flex-wrap justify-start gap-3 sm:gap-5"
+            className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-5 gap-4 max-w-[750px]" //flex flex-wrap justify-center gap-3 sm:gap-5
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,7 +79,7 @@ const About = ({isDarkMode}:{isDarkMode:boolean}) => {
 
           {/* Tools */}
           <motion.h4
-            className= {`my-6 font-Ovo ${isDarkMode ? 'text-white' : 'text-black'}`}
+            className={`my-6 font-Ovo ${isDarkMode ? 'text-white' : 'text-black'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -88,18 +90,25 @@ const About = ({isDarkMode}:{isDarkMode:boolean}) => {
 
           <motion.ul
             className="flex items-center gap-3 sm:gap-5"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            //viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.2 } }, // Stagger hiệu ứng
+              hidden: {},
+            }}
           >
             {toolsData.map((tool, index) => (
               <motion.li
                 key={index}
                 className="group relative flex items-center justify-center w-12 sm:w-14 aspect-square 
-                 rounded-lg p-2 cursor-pointer transition-all duration-500
-                 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-500/30
-                 dark:hover:shadow-gray-900/50"
+       rounded-lg p-2 cursor-pointer transition-all duration-500
+       hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-500/30
+       dark:hover:shadow-gray-900/50"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >

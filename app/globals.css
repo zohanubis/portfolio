@@ -1,31 +1,37 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Định nghĩa biến CSS cho các màu */
 @layer base {
   :root {
     --color-text: #000000;
     --color-light-hover: #ffffff;
-    --color-dark-hover: #292A2D;
+    --color-dark-hover: #292a2d;
 
-    --color-hologram-100: #A2D2FF;
-    --color-hologram-200: #3B82F6;
-    --color-hologram-300: #7A4D9C;
-    --color-hologram-400: #0D0D0D;
-    --color-hologram-500: #1A1A1A;
+    --color-hologram-100: #a2d2ff;
+    --color-hologram-200: #3b82f6;
+    --color-hologram-300: #7a4d9c;
+    --color-hologram-400: #0d0d0d;
+    --color-hologram-500: #1a1a1a;
 
-    --color-light-theme-100: #DFF2EB;
-    --color-light-theme-200: #B9E5E8;
-    --color-light-theme-300: #7AB2D3;
-    --color-light-theme-400: #4A628A;
+    --color-light-theme-100: #dff2eb;
+    --color-light-theme-200: #b9e5e8;
+    --color-light-theme-300: #7ab2d3;
+    --color-light-theme-400: #4a628a;
 
     /* Background gradient cho theme sáng */
-    --background-gradient: linear-gradient(180deg, var(--color-light-theme-100), var(--color-light-theme-200), var(--color-light-theme-300), var(--color-light-theme-400));
+    --background-gradient: linear-gradient(
+      180deg,
+      var(--color-light-theme-100),
+      var(--color-light-theme-200),
+      var(--color-light-theme-300),
+      var(--color-light-theme-400)
+    );
   }
 
   /* Biến màu cho theme tối (gradient hoàn toàn) */
   .dark {
-    --color-text: #EEEEEE;
-    --background-gradient: linear-gradient(180deg, #201E43, #134B70, #201E43, #134B70);
+    --color-text: #eeeeee;
+    --background-gradient: linear-gradient(180deg, #201e43, #134b70, #201e43, #134b70);
   }
 }
 
@@ -37,30 +43,64 @@ body {
 
 /* Thêm các tiện ích mở rộng */
 @layer utilities {
-  .bg-light-hover { background-color: var(--color-light-hover); }
-  .bg-dark-hover { background-color: var(--color-dark-hover); }
+  .bg-light-hover {
+    background-color: var(--color-light-hover);
+  }
+  .bg-dark-hover {
+    background-color: var(--color-dark-hover);
+  }
 
-  .bg-hologram-100 { background-color: var(--color-hologram-100); }
-  .bg-hologram-200 { background-color: var(--color-hologram-200); }
-  .bg-hologram-300 { background-color: var(--color-hologram-300); }
-  .bg-hologram-400 { background-color: var(--color-hologram-400); }
-  .bg-hologram-500 { background-color: var(--color-hologram-500); }
+  .bg-hologram-100 {
+    background-color: var(--color-hologram-100);
+  }
+  .bg-hologram-200 {
+    background-color: var(--color-hologram-200);
+  }
+  .bg-hologram-300 {
+    background-color: var(--color-hologram-300);
+  }
+  .bg-hologram-400 {
+    background-color: var(--color-hologram-400);
+  }
+  .bg-hologram-500 {
+    background-color: var(--color-hologram-500);
+  }
 
-  .bg-light-theme-100 { background-color: var(--color-light-theme-100); }
-  .bg-light-theme-200 { background-color: var(--color-light-theme-200); }
-  .bg-light-theme-300 { background-color: var(--color-light-theme-300); }
-  .bg-light-theme-400 { background-color: var(--color-light-theme-400); }
+  .bg-light-theme-100 {
+    background-color: var(--color-light-theme-100);
+  }
+  .bg-light-theme-200 {
+    background-color: var(--color-light-theme-200);
+  }
+  .bg-light-theme-300 {
+    background-color: var(--color-light-theme-300);
+  }
+  .bg-light-theme-400 {
+    background-color: var(--color-light-theme-400);
+  }
 
-  .bg-dark-theme { background: var(--background-gradient); }
+  .bg-dark-theme {
+    background: var(--background-gradient);
+  }
 
   /* Font Family */
-  .font-outfit { font-family: 'Outfit', sans-serif; }
-  .font-ovo { font-family: 'Ovo', sans-serif; }
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+  .font-ovo {
+    font-family: 'Ovo', sans-serif;
+  }
 
   /* Box Shadow */
-  .shadow-black { box-shadow: 4px 4px 0px #000; }
-  .shadow-white { box-shadow: 4px 4px 0px #fff; }
+  .shadow-black {
+    box-shadow: 4px 4px 0px #000;
+  }
+  .shadow-white {
+    box-shadow: 4px 4px 0px #fff;
+  }
 
   /* Grid Template Columns */
-  .grid-cols-auto { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .grid-cols-auto {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }

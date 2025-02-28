@@ -1,70 +1,30 @@
-"use client";
+'use client';
 
-import { memo, useCallback, useMemo } from "react";
-import { VerticalTimelineElement } from "react-vertical-timeline-component";
-import { motion, AnimatePresence } from "framer-motion";
-import TechList from "./TechList";
-import { ExperienceItemProps } from "@/interfaces/experienceItemProps.interface";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { setActiveTab, setActiveTimeline } from "@/redux/slices/tabSlice";
+import { memo, useCallback } from 'react';
+import { VerticalTimelineElement } from 'react-vertical-timeline-component';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
+import { setActiveTab, setActiveTimeline } from '@/redux/slices/tabSlice';
+import TabButton from './TabButton';
+import ExperienceContent from './ExperienceContent';
+import { ExperienceItemProps } from '@/interfaces/experienceItemProps.interface';
 
-const TABS = ["description", "technologies", "responsibilities"] as const;
+const TABS = ['description', 'technologies', 'responsibilities'] as const;
 
 const ExperienceItem = memo(({ exp, onHover, index, isDarkMode }: ExperienceItemProps) => {
   const dispatch = useDispatch();
-  const { activeTabs, activeTimeline } = useSelector((state: RootState) => state.tabs);
-  const isActive = activeTimeline === index;
-  const activeTab = activeTabs[index] ?? null;
+  const activeTab = useSelector((state: RootState) => state.tabs.activeTabs[index]) ?? null;
+  const isActive = useSelector((state: RootState) => state.tabs.activeTimeline) === index;
 
   const handleTabClick = useCallback(
     (tab: string) => {
       dispatch(setActiveTimeline(index));
       dispatch(setActiveTab({ index, tab: activeTab === tab ? null : tab }));
     },
-    [dispatch, index, activeTab]
+    [dispatch, index, activeTab],
   );
 
-  const borderColor = isDarkMode ? "#ccc" : "#444";
-  const textColor = isDarkMode ? "text-white" : "text-black";
-
-  const renderTabContent = useMemo(() => {
-    if (!exp || !activeTab) return null;
-
-    return (
-      <motion.section
-        key={activeTab}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
-        className={`mt-4 p-4 rounded-2xl shadow-md font-Ovo ${
-          isDarkMode ? "bg-[#508C9B] text-white" : "bg-[#DFF2EB] text-black"
-        }`}
-      >
-        {activeTab === "description" && <p>{exp.description}</p>}
-
-        {activeTab === "technologies" && exp.technologies && (
-          Object.entries(exp.technologies).map(([category, items]) => (
-            <div key={category} className="mb-2">
-              <h4 className={`font-Ovo font-semibold ${textColor}`}>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </h4>
-              <TechList title={category} items={items} />
-            </div>
-          ))
-        )}
-
-        {activeTab === "responsibilities" && exp.responsibilities && (
-          <ul>
-            {Object.entries(exp.responsibilities).map(([category, tasks]) => (
-              <li key={category}>✅ {tasks.join(", ")}</li>
-            ))}
-          </ul>
-        )}
-      </motion.section>
-    );
-  }, [activeTab, exp, isDarkMode, textColor]);
+  const borderColor = isDarkMode ? '#ccc' : '#444';
 
   return (
     <article
@@ -75,56 +35,55 @@ const ExperienceItem = memo(({ exp, onHover, index, isDarkMode }: ExperienceItem
     >
       <VerticalTimelineElement
         contentStyle={{
-          background: "transparent",
-          boxShadow: "none",
+          background: 'transparent',
+          boxShadow: 'none',
           border: `1px solid ${borderColor}`,
-          textAlign: "left",
+          textAlign: 'left',
         }}
         contentArrowStyle={{ borderRight: `0.4rem solid ${borderColor}` }}
         date={exp.date}
-        position={index % 2 === 0 ? "left" : "right"}
+        position={index % 2 === 0 ? 'left' : 'right'}
         icon={exp.icon}
         iconStyle={{
-          background: isDarkMode ? "#201E43" : "#fff",
-          color: isDarkMode ? "#fff" : "#000",
+          background: isDarkMode ? '#201E43' : '#fff',
+          color: isDarkMode ? '#fff' : '#000',
         }}
       >
-        <h2 className={`text-xl md:text-xl font-bold ${textColor}`}>{exp.title}</h2>
-        <h3 className={`text-sm md:text-base opacity-80 font-Ovo ${textColor}`}>{exp.location}</h3>
+        <h2 className={`text-xl md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          {exp.title}
+        </h2>
+        <h3
+          className={`text-sm md:text-base opacity-80 font-Ovo ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-700'
+          }`}
+        >
+          {exp.location}
+        </h3>
 
         {/* Tabs */}
         <div className="flex gap-6 my-4 border-b border-gray-500 font-Ovo">
           {TABS.map((tab) => (
-            <button
+            <TabButton
               key={tab}
+              tab={tab}
+              activeTab={activeTab}
               onClick={() => handleTabClick(tab)}
-              className={`relative text-lg pb-2 transition-colors duration-300 ${
-                activeTab === tab
-                  ? isDarkMode
-                    ? "text-gray-100"
-                    : "text-black"
-                  : isDarkMode
-                    ? "text-gray-500 hover:text-gray-300"
-                    : "text-gray-700 hover:text-gray-500"
-              }`}
-              aria-label={`Switch to ${tab} tab`}
-            >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              {activeTab === tab && (
-                <motion.div
-                  layoutId={`tab-indicator-${index}`}
-                  className={`absolute left-0 bottom-0 h-[3px] w-full rounded ${isDarkMode ? "bg-gray-100" : "bg-black"}`}
-                />
-              )}
-            </button>
+              isDarkMode={isDarkMode}
+            />
           ))}
         </div>
 
-        <AnimatePresence>{activeTab && isActive && renderTabContent}</AnimatePresence>
+        {/* Nội dung của từng tab */}
+        <ExperienceContent
+          activeTab={activeTab}
+          exp={exp}
+          isActive={isActive}
+          isDarkMode={isDarkMode}
+        />
       </VerticalTimelineElement>
     </article>
   );
 });
 
-ExperienceItem.displayName = "ExperienceItem";
+ExperienceItem.displayName = 'ExperienceItem';
 export default ExperienceItem;

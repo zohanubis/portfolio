@@ -34,9 +34,18 @@ export default function Experience({ isDarkMode }: ExperienceProps) {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <SectionHeading>My Work</SectionHeading>
+        <SectionHeading>Projects & Work History</SectionHeading>
       </motion.div>
-
+      <motion.p
+        className="text-center max-w-3xl mx-auto mt-4"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        A look at my progression from student projects to real-world development roles.
+      </motion.p>
+      <br />
       {/* Timeline */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
