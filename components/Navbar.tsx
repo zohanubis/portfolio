@@ -107,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
       </nav>
 
       <div
-        className={`fixed inset-0  bg-opacity-30 backdrop-blur-sm z-40 transition-opacity duration-300
+        className={`fixed inset-0 bg-opacity-30 backdrop-blur-sm z-40 transition-opacity duration-300
         ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
         onClick={() => setIsMenuOpen(false)}
       ></div>
