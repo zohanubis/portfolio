@@ -61,7 +61,7 @@ const ExperienceItem = memo(({ exp, onHover, index, isDarkMode }: ExperienceItem
         </h3>
 
         {/* Tabs */}
-        <div className="flex gap-6 my-4 border-b border-gray-500 font-Ovo">
+        <div className="flex flex-wrap justify-start gap-4 my-4 border-b border-gray-500 font-Ovo max-w-full">
           {TABS.map((tab) => (
             <TabButton
               key={tab}
