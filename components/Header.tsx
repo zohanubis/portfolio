@@ -116,7 +116,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
           <a
-            href="/public/FullstackWebDeveloper_PhamHoDangHuy.pdf"
+            href="/FullstackWebDeveloper_PhamHoDangHuy.pdf"
             download
             className={`${btnClass} border-gray-500 `}
             aria-label="Download My Resume"
