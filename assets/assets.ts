@@ -61,7 +61,6 @@ import oracle_small from './icons/small/oracle-icon.png';
 import redux_small from './icons/small/redux-icon.png';
 import springboot_small from './icons/small/spring-boot-icon.png';
 import sql_small from './icons/small/sql-icon.png';
-import vercel_small from './icons/small/vercel-icon.png';
 import rental_icon from './icons/small/rental-icon.png';
 import managenment_icon from './icons/small/management-icon.png';
 import mobile_shop_icon from './icons/small/mobile-shop-icon.png';
@@ -194,7 +193,6 @@ export const assets: Record<string, StaticImageData> = {
   redux_small,
   springboot_small,
   sql_small,
-  vercel_small,
   rental_icon,
   mobile_shop_icon,
   managenment_icon,
@@ -205,7 +203,6 @@ export const assets: Record<string, StaticImageData> = {
   jwt_icon_small,
   fastApi_icon_small,
   tailwind_icon_small,
-
 };
 
 export const workData: WorkItem[] = [
@@ -265,7 +262,6 @@ export const serviceData: ServiceItem[] = [
         url: 'https://github.com/features/actions',
       },
       { name: 'Firebase', icon: assets.firebase, url: 'https://firebase.google.com/' },
-      { name: 'Vercel', icon: assets.vercel_small, url: 'https://vercel.com/' },
     ],
   },
 ];
@@ -289,98 +285,92 @@ export const infoList: InfoItem[] = [
 
 export const experienceData: ExperienceItem[] = [
   {
-    id: "cyberskill-intern",
-    title: "Fullstack Web Developer Intern",
-    location: "Cyberskill Software Solutions",
+    id: 'cyberskill-intern',
+    title: 'Fullstack Web Developer Intern',
+    location: 'Cyberskill Software Solutions',
     description:
-      "Contributed to both frontend and backend development for the Student Life - Rental Management project. Designed UI/UX, built APIs, and optimized database structures.",
+      'Contributed to both frontend and backend development for the Student Life - Rental Management project. Designed UI/UX, built APIs, and optimized database structures.',
     icon: React.createElement(LuGraduationCap),
-    date: "Sep 2024 - Dec 2024",
+    date: 'Sep 2024 - Dec 2024',
     technologies: {
       frontend: [
-        { name: "React", image: react_small },
-        { name: "Next.js", image: nextjs_icon_small },
-        { name: "TypeScript", image: typescript_small },
+        { name: 'React', image: react_small },
+        { name: 'Next.js', image: nextjs_icon_small },
+        { name: 'TypeScript', image: typescript_small },
       ],
       backend: [
-        { name: "Node.js", image: nodejs_small },
-        { name: "Express.js", image: expressjs_small },
-        { name: "GraphQL", image: graphql_small },
-        { name: "MongoDB", image: assets.mongodb },
+        { name: 'Node.js', image: nodejs_small },
+        { name: 'Express.js', image: expressjs_small },
+        { name: 'GraphQL', image: graphql_small },
+        { name: 'MongoDB', image: assets.mongodb },
       ],
       devops: [
-        { name: "Git", image: assets.git },
-        { name: "Docker", image: docker_small },
-        { name: "GitHub Actions", image: github_small },
+        { name: 'Git', image: assets.git },
+        { name: 'Docker', image: docker_small },
+        { name: 'GitHub Actions', image: github_small },
       ],
     },
     responsibilities: {
       frontend: [
-        "Designed and developed user-friendly interfaces.",
-        "Implemented features for rental listings, search, and filtering.",
-        "Ensured responsive design across desktop and mobile platforms.",
+        'Designed and developed user-friendly interfaces.',
+        'Implemented features for rental listings, search, and filtering.',
+        'Ensured responsive design across desktop and mobile platforms.',
       ],
       backend: [
-        "Designed and structured MongoDB collections.",
-        "Developed RESTful and GraphQL APIs for rental management.",
-        "Optimized API performance, conducted testing, and debugged issues.",
+        'Designed and structured MongoDB collections.',
+        'Developed RESTful and GraphQL APIs for rental management.',
+        'Optimized API performance, conducted testing, and debugged issues.',
       ],
     },
   },
   {
-    id: "iu-student-management",
-    title: "Fullstack Web Developer",
-    location: "Industrial University of Ho Chi Minh City",
+    id: 'iu-student-management',
+    title: 'Fullstack Web Developer',
+    location: 'Industrial University of Ho Chi Minh City',
     description:
-      "Developed a student activity management and QR code attendance system. Enabled activity registration, participation tracking, and automated notifications.",
+      'Developed a student activity management and QR code attendance system. Enabled activity registration, participation tracking, and automated notifications.',
     icon: React.createElement(LuGraduationCap),
-    date: "Oct 2024 - Dec 2024",
+    date: 'Oct 2024 - Dec 2024',
     technologies: {
       frontend: [
-        { name: "React", image: react_small },
-        { name: "Next.js", image: nextjs_icon_small },
-        { name: "TypeScript", image: typescript_small },
+        { name: 'React', image: react_small },
+        { name: 'Next.js', image: nextjs_icon_small },
+        { name: 'TypeScript', image: typescript_small },
       ],
       backend: [
-        { name: "Node.js", image: nodejs_small },
-        { name: "Express.js", image: expressjs_small},
-        { name: "FastAPI", image: fastApi_icon_small },
+        { name: 'Node.js', image: nodejs_small },
+        { name: 'Express.js', image: expressjs_small },
+        { name: 'FastAPI', image: fastApi_icon_small },
       ],
       database: [
-        { name: "MongoDB", image: assets.mongodb },
-        { name: "Redis", image: redis_icon_small },
+        { name: 'MongoDB', image: assets.mongodb },
+        { name: 'Redis', image: redis_icon_small },
       ],
-      messaging: [
-        { name: "RabbitMQ", image:rabbitmq_icon_small },
-      ],
-      storage: [
-        { name: "Cloudinary", image: cloudinary_icon_small },
-      ],
-      authentication: [
-        { name: "JWT", image: jwt_icon_small },
-      ],
+      messaging: [{ name: 'RabbitMQ', image: rabbitmq_icon_small }],
+      storage: [{ name: 'Cloudinary', image: cloudinary_icon_small }],
+      authentication: [{ name: 'JWT', image: jwt_icon_small }],
       devops: [
-        { name: "Docker", image: docker_small},
-        { name: "GitHub Actions", image: github_small },
-        { name: "Firebase Cloud Messaging (FCM)", image: firebase },
+        { name: 'Docker', image: docker_small },
+        { name: 'GitHub Actions', image: github_small },
+        { name: 'Firebase Cloud Messaging (FCM)', image: firebase },
       ],
     },
     responsibilities: {
       frontend: [
-        "Designed UI/UX using Figma and developed a responsive interface.",
-        "Implemented features for activity display and QR code attendance tracking.",
-        "Optimized performance using Next.js (SSR, SSG).",
+        'Designed UI/UX using Figma and developed a responsive interface.',
+        'Implemented features for activity display and QR code attendance tracking.',
+        'Optimized performance using Next.js (SSR, SSG).',
       ],
       backend: [
-        "Developed GraphQL APIs using Express.js and MongoDB.",
-        "Implemented a microservices architecture.",
-        "Integrated Redis caching and distributed locks.",
-        "Managed image storage with Cloudinary.",
+        'Developed GraphQL APIs using Express.js and MongoDB.',
+        'Implemented a microservices architecture.',
+        'Integrated Redis caching and distributed locks.',
+        'Managed image storage with Cloudinary.',
       ],
       devops: [
-        "Deployed the system using Docker.",
-        "Integrated RabbitMQ for message queue processing.",
-        "Implemented Firebase Cloud Messaging (FCM) for real-time notifications.",
+        'Deployed the system using Docker.',
+        'Integrated RabbitMQ for message queue processing.',
+        'Implemented Firebase Cloud Messaging (FCM) for real-time notifications.',
       ],
     },
   },
@@ -416,7 +406,6 @@ const databaseTech: Technology[] = [
 const devopsTech: Technology[] = [
   { name: 'Docker', image: assets.docker_small },
   { name: 'GitHub', image: assets.github_small },
-  { name: 'Vercel', image: assets.vercel_small },
 ];
 
 const apiTech: Technology[] = [
